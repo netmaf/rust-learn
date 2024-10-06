@@ -25,6 +25,15 @@ fn notify(u: &impl Summary) { // this functions only accepts arge which implemen
     println!("Inside notifire {}", u.summarize())
 }
 
+// notify impl is syntactic suger -> under the hood it does the following
+fn notify2<T: Summary>(item: T) {
+    println!("Inside notifire {}", item.summarize())
+}
+
+// fn notify2<T: Summary + Fix>(item: &T) { //impl multiple traits
+//     println!("Inside notifire {}", item.summarize())
+// }
+
 fn main() {
     let sunny = User {
         name: String::from("Sunny"),
